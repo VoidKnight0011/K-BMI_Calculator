@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc64561cc79cfede871c" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="K_BMI_Calculator.MainActivity, K-BMI_Calculator">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc64561cc79cfede871c" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="K_BMI_Calculator.MainApplication, K-BMI_Calculator" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="K-BMI_Calculator" module-name="K-BMI_Calculator.dll">
+    <type assembly-qualified-name="K_BMI_Calculator.MainActivity, K-BMI_Calculator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="k_bmi_calculator.MainActivity" java-key="crc64561cc79cfede871c.MainActivity" managed-key="K_BMI_Calculator.MainActivity" partial-assembly-qualified-name="K_BMI_Calculator.MainActivity, K-BMI_Calculator" />
+    <type assembly-qualified-name="K_BMI_Calculator.MainApplication, K-BMI_Calculator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="k_bmi_calculator.MainApplication" java-key="crc64561cc79cfede871c.MainApplication" managed-key="K_BMI_Calculator.MainApplication" partial-assembly-qualified-name="K_BMI_Calculator.MainApplication, K-BMI_Calculator" />
+  </acw-types>
+</api>

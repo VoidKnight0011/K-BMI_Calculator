@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="K_BMI_Calculator.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:K_BMI_Calculator"
+    Title="BMI Calculator">
+
+    <!-- <ShellContent
+		ContentTemplate="{DataTemplate local:Splash}"
+		Route = "Splash" /> -->
+	<ShellContent
+        Title="BMI Calculator"
+		ContentTemplate="{DataTemplate local:MainPage}"
+		Route = "MainPage" />	
+
+</Shell>
