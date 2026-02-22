@@ -1598,3 +1598,4 @@ C:\Users\geose\RiderProjects\K-BMI_Calculator\K-BMI_Calculator\obj\Debug\net10.0
 C:\Users\geose\RiderProjects\K-BMI_Calculator\K-BMI_Calculator\obj\Debug\net10.0-android\android-arm\resizetizer\sp\drawable\maui_splash_image.xml
 C:\Users\geose\RiderProjects\K-BMI_Calculator\K-BMI_Calculator\obj\Debug\net10.0-android\android-arm\resizetizer\sp\values\maui_colors.xml
 C:\Users\geose\RiderProjects\K-BMI_Calculator\K-BMI_Calculator\obj\Debug\net10.0-android\android-arm\resizetizer\96F200E9268E21D3-files.cache
+C:\Users\geose\RiderProjects\K-BMI_Calculator\K-BMI_Calculator\obj\Debug\net10.0-android\android-arm\K-BMI_Calculator.sourcelink.json

@@ -10,7 +10,6 @@
 		ContentTemplate="{DataTemplate local:Splash}"
 		Route = "Splash" /> -->
 	<ShellContent
-        Title="BMI Calculator"
 		ContentTemplate="{DataTemplate local:MainPage}"
 		Route = "MainPage" />	
 
