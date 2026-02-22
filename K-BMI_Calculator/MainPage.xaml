@@ -5,62 +5,65 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
+            Padding="25,0"
             Spacing="25">
 
-            <!-- Heading: BMI Calculator --> 
-            <Label Text = "BMI Calculator" FontSize="Title" />   
-            <Label Text = "Enter Details to Calculate Body Mass Index (BMI)" FontSize="Subtitle" />         
-            
-            <Grid ColumnDefinitions = "*,*">
-                <Frame Grid.Column = "0" BackgroundColor="Gray" CornerRadius="5" Padding="5">
+            <VerticalStackLayout Spacing = "2">
+            	<Label Text="BMI Calculator" FontSize="Title" HorizontalOptions="Center" FontAttributes ="Bold" />
+            	<Label Text="Calculate Body Mass Index (BMI)" FontSize="Subtitle" HorizontalOptions="Center" />
+			</VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Frame BackgroundColor="Gray" CornerRadius="5" Padding="5">
                     <VerticalStackLayout>
-                    <Label Text = "Sex" />
-                        <Picker x:Name="Sex">
+                        <Label Text="Units" />
+                        <Picker x:Name="Units" SelectedIndexChanged="ChangeUnits" SelectedIndex="1">
                             <Picker.Items>
-                                <x:String>Male</x:String>
-                                <x:String>Female</x:String>
+                                <x:String>Imperial</x:String>
+                                <x:String>Metric</x:String>
                             </Picker.Items>
                         </Picker>
 
-                    <Label Text = "{Binding Source = {x:Reference Age}, Path=Value, StringFormat='AGE: {0:F0} Yrs. Old'}" />
-                        <Slider x:Name="Age" Minimum = "18" Maximum = "100" />
+                        <!-- Imperial: 703 x [LBS/Inches^2] -->
+                        <VerticalStackLayout x:Name="ImperialUnits" IsVisible="False">
+							<HorizontalStackLayout>
+                            	<Label Text="Height" HorizontalOptions="Start" />
+								<Label Text="{Binding Source={x:Reference HeightImperial}, Path=Value, StringFormat='{0:F1} ft'}" HorizontalOptions = "EndAndExpand" />
+							</HorizontalStackLayout>
+								<Slider x:Name="HeightImperial" Minimum="4" Value="5.5" Maximum ="11.1" />
+                            <HorizontalStackLayout>
+                            	<Label Text="Weight" HorizontalOptions="Start" />
+								<Label Text="{Binding Source={x:Reference WeightImperial}, Path=Value, StringFormat='{0:F0} lbs'}" HorizontalOptions="EndAndExpand" />
+							</HorizontalStackLayout>
+								<Slider x:Name="WeightImperial" Minimum = "50" Value="100" Maximum="240" />
+                        </VerticalStackLayout>
 
-                    <Label Text = "Units" />
-                        <Picker x:Name="Units" SelectedIndexChanged="ChangeUnits">
-                            <Picker.Items>
-                                <x:String>ImperialUnits</x:String>
-                                <x:String>MetricUnits</x:String>
-                            </Picker.Items>
-                        </Picker>
-                            <VerticalStackLayout x:Name="ImperialUnits" IsVisible = "False">
-                                <!-- Imperial: 703 x [LBS/Inches^2] -->
-                                    <Label Text = "Height" />
-                                        <Stepper x:Name="HeightFt" Minimum = "4" Maximum = "11" />
-                                        <Stepper x:Name="HeightIn" Minimum = "0" Maximum = "11" />
-                                    <Label Text = "Weight" />
-                                        <Entry x:Name="WeightLbs" Placeholder = "eg. 160lbs" />
-                            </VerticalStackLayout>
-                            
-                            <VerticalStackLayout x:Name="MetricUnits" IsVisible = "True">
-                                <!-- Metric: KG / (cm/100)^2 -->
-                                    <Label Text = "Height" />
-                                        <Entry x:Name="HeightCm" Placeholder = "eg. 150cm" />
-                                    <Label Text = "Weight" />
-                                        <Entry x:Name="WeightKg" Placeholder = "eg. 160kg" />
-                            </VerticalStackLayout>
+                        <!-- Metric: KG / (cm/100)^2 -->
+                        <VerticalStackLayout x:Name="MetricUnits" IsVisible="True">
+                            <HorizontalStackLayout>
+                            	<Label Text="Height" HorizontalOptions="Start" />
+								<Label Text="{Binding Source={x:Reference HeightMetric}, Path=Value, StringFormat='{0:F0} cm'}" HorizontalOptions = "EndAndExpand" />
+							</HorizontalStackLayout>
+								<Slider x:Name="HeightMetric" Minimum = "50" Value = "170" Maximum = "250" />
+							<HorizontalStackLayout>
+                            	<Label Text="Weight" HorizontalOptions="Start" />
+								<Label Text="{Binding Source={x:Reference WeightMetric}, Path=Value, StringFormat='{0:F0} kg'}" HorizontalOptions = "EndAndExpand" />
+							</HorizontalStackLayout>
+								<Slider x:Name="WeightMetric" Minimum = "20" Value = "70" Maximum = "300" />
+                        </VerticalStackLayout>
 
-                    <Button Text = "Calculate" Clicked = "CalculateBMI" />
+                        <Button Text="Calculate" Clicked="CalculateBMI" />
 
                     </VerticalStackLayout>
                 </Frame>
 
 
 
-                <Frame Grid.Column="1" BackgroundColor="Yellow" CornerRadius="5" Padding="5">
-                    <Label x:Name = "ResultLabel" Text = "BMI Results Here!" />
+                <Frame BackgroundColor="Gray" CornerRadius="5" Padding="5" HeightRequest = "150" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label x:Name="ResultLabel" Text="BMI Results Here!" />
                 </Frame>
-            </Grid>
+
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

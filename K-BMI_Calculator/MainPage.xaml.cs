@@ -1,4 +1,4 @@
-﻿// using Android.Telephony.Gsm;
+﻿// using AndroidX.Activity.Result;
 
 namespace K_BMI_Calculator;
 
@@ -13,25 +13,22 @@ public partial class MainPage : ContentPage
     public void CalculateBMI(object sender, EventArgs e)
     {
         double BMI = 0;
-        string sex = Sex.SelectedItem?.ToString();
-        int age = (int)Age.Value;
+        // string sex = Sex.SelectedItem?.ToString();
+        // int age = (int)Age.Value;
         string units = Units.SelectedItem?.ToString();
+        if (units == null) return;
+        if (units.Contains("Imperial")) {
+            double heightImperial = (double)HeightImperial.Value;
+            double weightImperial = (double)WeightImperial.Value;
 
-        if (units.Contains("ImperialUnits")) {
-                double heightFt = HeightFt.Value;
-                double heightIn = HeightIn.Value;
-            double heightImperial = (heightFt * 12) + heightIn;
-            double weightImperial = double.Parse(WeightLbs.Text);
-
-            BMI = 703 * (weightImperial / Math.Pow(heightImperial, 2));
-        } else if (units.Contains("MetricUnits")) {
-            double heightMetric = double.Parse(HeightCm.Text);
-            double weightMetric = double.Parse(WeightKg.Text);
-
-            BMI = weightMetric / Math.Pow(heightMetric, 2);
-        }
-        else
+            BMI = 703 * (weightImperial / Math.Pow((heightImperial * 12), 2));
+        } else if (units.Contains("Metric"))
         {
+            double heightMetric = (double)HeightMetric.Value;
+            double weightMetric = (double)WeightMetric.Value;
+
+            BMI = weightMetric / Math.Pow((heightMetric / 100), 2);
+        } else {
             BMI = -1;
         }
         
@@ -40,7 +37,11 @@ public partial class MainPage : ContentPage
 
     public void ChangeUnits(object sender, EventArgs e)
     {
-        // To Do
+        Picker picker = (Picker)sender;
+        string selected = picker.SelectedItem?.ToString();
+        
+        ImperialUnits.IsVisible = selected == "Imperial";
+        MetricUnits.IsVisible = selected == "Metric";
     }
     
 }
